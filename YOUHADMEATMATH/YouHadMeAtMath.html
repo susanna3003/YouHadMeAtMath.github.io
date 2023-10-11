@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>You Had Me At Math!</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #6DD5FA, #2980B9);
+			background-attachment: fixed;
+            font-family: DejaVu Sans Mono, monospace;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #comment-box {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>You Had Me At Math!</h1>
+        <nav>
+            <a href="MoreInfo.html">MORE INFO</a> |
+            <a href="Contact.html">CONTACT</a> |
+            <a href="UserStories.html">USER STORIES</a>
+        </nav>
+    </header>
+
+    <div id="container">
+        <img src="kid_calc_hotpot.png" alt="Student with Calculator">
+        <p>You Had Me At Math! Many children struggle with comprehending the beginner basics of mathematics and can't always get individual focused assistance in a large classroom. At You Had Me At Math, we care about the academic progress of our students and have created a fun and innovative way of letting children tutor themselves at home. With useful and interactive features like linked parent-student accounts to let parents monitor progress and customizable math quizzes to test yourself at your own pace.</p>
+
+        <div id="comment-box">
+            <h2>Leave a Comment</h2>
+            <form>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="inquiry">Student, parent, or teacher inquiry:</label><br>
+                <select id="inquiry" name="inquiry">
+                    <option value="Student">Student</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Teacher">Teacher</option>
+                </select><br><br>
+
+                <label for="comment">Comment:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
