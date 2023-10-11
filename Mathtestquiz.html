@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Quiz</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>Math Quiz</h1>
+	<li><a href="index.html">Index</a><br></li>
+	<li><a href="MathWebsite.html">Math Site</a><br></li>
+	<li><a href="Promo.html">Promo</a></li>
+    <div id="quiz-container">
+        <div id="question">
+            <!-- The math problem will appear here -->
+        </div>
+        <input type="text" id="answer" placeholder="Your Answer">
+        <button id="submit">Submit</button>
+    </div>
+
+    <div id="result">
+        <!-- The result of the quiz will be displayed here -->
+    </div>
+
+    <script>
+        const questions = [
+            { question: "2 + 2", answer: "4" },
+            { question: "5 - 3", answer: "2" },
+            { question: "3 * 3", answer: "9" },
+            { question: "10 / 2", answer: "5" }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        const questionElement = document.getElementById('question');
+        const answerElement = document.getElementById('answer');
+        const resultElement = document.getElementById('result');
+        const submitButton = document.getElementById('submit');
+
+        function showQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                questionElement.textContent = questions[currentQuestionIndex].question;
+            } else {
+                questionElement.textContent = "Quiz completed!";
+                answerElement.disabled = true;
+                submitButton.disabled = true;
+            }
+        }
+
+        function checkAnswer() {
+            const userAnswer = answerElement.value;
+            const correctAnswer = questions[currentQuestionIndex].answer;
+
+            if (userAnswer === correctAnswer) {
+                resultElement.textContent = "Correct!";
+            } else {
+                resultElement.textContent = "Incorrect. The correct answer is: " + correctAnswer;
+            }
+
+            currentQuestionIndex++;
+            showQuestion();
+            answerElement.value = '';
+        }
+
+        submitButton.addEventListener('click', checkAnswer);
+        showQuestion();
+    </script>
+</body>
+</html>
