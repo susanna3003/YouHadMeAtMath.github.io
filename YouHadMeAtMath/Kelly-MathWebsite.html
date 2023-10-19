@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Math Website</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #6DD5FA, #2980B9);
+			background-attachment: fixed;
+            font-family: DejaVu Sans Mono, monospace;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+		p {
+				margin-top: 25px;    /* 10 pixels of top margin */
+				margin-right: 25px;  /* 20 pixels of right margin */
+				margin-bottom: 25px; /* 10 pixels of bottom margin */
+				margin-left: 25px;   /* 20 pixels of left margin */
+		}
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #comment-box {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Math Website</h1>
+        <nav>
+            <ul>
+				<a href="YouHadMeAtMath.html">HOME</a>
+                <a href="index.html">Index</a><br>
+				<a href="Promo.html">Promo</a>
+				<li><a href="#home">Home</a></li>
+                <li><a href="#addition">Addition</a></li>
+                <li><a href="#subtraction">Subtraction</a></li>
+                <li><a href="#multiplication">Multiplication</a></li>
+                <li><a href="#division">Division</a></li>
+                <li><a href="#math-test">Math Test</a></li>
+                <li><a href="#admin-login">Admin Login</a></li>
+                <li><a href="#student-login">Student Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to the Math Website</h2>
+        <p>This is a simple math website where you can practice addition, subtraction, multiplication, and division.</p>
+    </section>
+
+    <section id="addition">
+        <h2>Addition</h2>
+        <button id="additionProblem">Generate Addition Problem</button>
+        <p id="additionResult"></p>
+    </section>
+
+    <section id="subtraction">
+        <h2>Subtraction</h2>
+        <button id="subtractionProblem">Generate Subtraction Problem</button>
+        <p id="subtractionResult"></p>
+    </section>
+
+    <section id="multiplication">
+        <h2>Multiplication</h2>
+        <button id="multiplicationProblem">Generate Multiplication Problem</button>
+        <p id="multiplicationResult"></p>
+    </section>
+
+    <section id="division">
+        <h2>Division</h2>
+        <button id="divisionProblem">Generate Division Problem</button>
+        <p id="divisionResult"></p>
+    </section>
+
+    <section id="math-test">
+        <h2>Math Test</h2>
+        <p>Take a math test here (not implemented in this example).</p>
+    </section>
+
+    <section id="admin-login">
+        <h2>Admin Login</h2>
+        <form>
+            <label for="adminUsername">Username:</label>
+            <input type="text" id="adminUsername" name="adminUsername"><br>
+
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" name="adminPassword"><br>
+
+            <button id="adminLogin">Login</button>
+        </form>
+    </section>
+
+    <section id="student-login">
+        <h2>Student Login</h2>
+        <form>
+            <label for="studentUsername">Username:</label>
+            <input type="text" id="studentUsername" name="studentUsername"><br>
+
+            <label for="studentPassword">Password:</label>
+            <input type="password" id="studentPassword" name="studentPassword"><br>
+
+            <button id="studentLogin">Login</button>
+        </form>
+    </section>
+
+    <script>
+        // JavaScript code for generating math problems and handling login (to be implemented)
+        // You would need to add JavaScript code to handle math problems and login functionality.
+    </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Learning Website</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Math Learning Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Index</a><br></li>
+				<li><a href="Promo.html">Promo</a></li>
+				<li><a href="#" id="addition">Addition</a></li>
+                <li><a href="#" id="subtraction">Subtraction</a></li>
+                <li><a href="#" id="multiplication">Multiplication</a></li>
+                <li><a href="#" id="division">Division</a></li>
+                <li><a href="Mathtestquiz.html" id="mathTest">Math Test</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="content">
+            <!-- Content will be loaded here -->
+        </div>
+    </main>
+    <script>
+        // JavaScript for handling menu clicks
+        const content = document.getElementById('content');
+        const additionBtn = document.getElementById('addition');
+        const subtractionBtn = document.getElementById('subtraction');
+        const multiplicationBtn = document.getElementById('multiplication');
+        const divisionBtn = document.getElementById('division');
+        const mathTestBtn = document.getElementById('mathTest');
+
+        additionBtn.addEventListener('click', () => {
+            // Replace this with your addition problem generation code
+            content.innerHTML = '<h2>Addition Problems</h2>';
+        });
+
+        subtractionBtn.addEventListener('click', () => {
+            // Replace this with your subtraction problem generation code
+            content.innerHTML = '<h2>Subtraction Problems</h2>';
+        });
+
+        multiplicationBtn.addEventListener('click', () => {
+            // Replace this with your multiplication problem generation code
+            content.innerHTML = '<h2>Multiplication Problems</h2>';
+        });
+
+        divisionBtn.addEventListener('click', () => {
+            // Replace this with your division problem generation code
+            content.innerHTML = '<h2>Division Problems</h2>';
+        });
+
+        mathTestBtn.addEventListener('click', () => {
+            // Replace this with your math test implementation
+            content.innerHTML = '<h2>Math Test</h2>';
+        });
+    </script>
+</body>
+</html>
