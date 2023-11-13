@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Times Tables Test</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #6DD5FA, #2980B9);
+			background-attachment: fixed;
+            font-family: DejaVu Sans Mono, monospace;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+		p {
+			margin-top: 25px;
+			margin-right: 25px;
+			margin-bottom: 25px;
+			margin-left: 25px;
+		}
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #comment-box {
+            margin-top: 20px;
+        }
+		
+		/* Add styling for the dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }	
+		
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+		<img src="YHMAM_logo.png" alt="Your Logo" style="max-width: 100px; height: auto; display: inline-block; vertical-align: middle; margin-right: 10px;">
+        <h1>You Had Me At Math!</h1>
+        <nav>
+            <a href="MoreInfo.html">MORE INFO</a> |
+            <a href="Contact.html">CONTACT</a> |
+            <a href="UserStories.html">USER STORIES</a> |
+			<a href="Kelly-MathWebsite.html">MATH WEBSITE[test]</a> |
+			<a href="Kelly-MathTestQuiz.html">MATH QUIZ[test]</a> |
+			<div class="dropdown">
+                <a href="TimesTables.html">TIMES TABLES</a>
+                <div class="dropdown-content">
+				<ul>
+                    <li><a href="#">2 TIMES TABLES</a></li>
+                    <li><a href="#">3 TIMES TABLES</a></li>
+                    <li><a href="#">4 TIMES TABLES</a></li>
+					<li><a href="#">5 TIMES TABLES</a></li>
+                    <li><a href="#">6 TIMES TABLES</a></li>
+                    <li><a href="#">7 TIMES TABLES</a></li>
+					<li><a href="#">8 TIMES TABLES</a></li>
+                    <li><a href="#">9 TIMES TABLES</a></li>
+                    <li><a href="#">10 TIMES TABLES</a></li>
+					<li><a href="#">11 TIMES TABLES</a></li>
+                    <li><a href="#">12 TIMES TABLES</a></li>
+				</ul>
+                </div>
+            </div> |
+        </nav>
+    </header>	
+    <h1>Times Tables Test</h1>
+    <p>Choose a times table to test:</p>
+
+    <select id="timesTable">
+        <option value="2">2 Times Table</option>
+        <option value="3">3 Times Table</option>
+        <option value="4">4 Times Table</option>
+        <option value="5">5 Times Table</option>
+        <option value="6">6 Times Table</option>
+        <option value="7">7 Times Table</option>
+        <option value="8">8 Times Table</option>
+        <option value="9">9 Times Table</option>
+        <option value="10">10 Times Table</option>
+    </select>
+
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Multiplicand</th>
+                <th>Multiplier</th>
+                <th>Your Answer</th>
+                <th>Check</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <button id="submitButton">Submit</button>
+
+    <div id="grade">
+        <h2>Grade</h2>
+        <p>Correct Answers: <span id="correctCount">0</span></p>
+        <p>Incorrect Answers: <span id="incorrectCount">0</span></p>
+        <p>Tries on Incorrect Answers: <span id="triesOnIncorrect">0</span></p>
+        <p>Problems to Study:</p>
+        <ul id="problemsToStudy"></ul>
+    </div>
+
+    <script>
+        // Variables to track the grade
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let triesOnIncorrect = 0;
+        const problemsToStudy = [];
+
+        // Function to update the grade display
+        function updateGrade() {
+            document.getElementById("correctCount").textContent = correctCount;
+            document.getElementById("incorrectCount").textContent = incorrectCount;
+            document.getElementById("triesOnIncorrect").textContent = triesOnIncorrect;
+
+            const problemsToStudyList = document.getElementById("problemsToStudy");
+            problemsToStudyList.innerHTML = "";
+            problemsToStudy.forEach((problem) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = problem;
+                problemsToStudyList.appendChild(listItem);
+            });
+        }
+
+        // Function to generate the times table questions and insert them into the table
+        function generateTimesTable() {
+            const selectedTable = parseInt(document.getElementById("timesTable").value);
+            const tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = "";
+
+            for (let i = 1; i <= 10; i++) {
+                const row = document.createElement("tr");
+
+                const multiplicandCell = document.createElement("td");
+                multiplicandCell.textContent = i;
+                row.appendChild(multiplicandCell);
+
+                const multiplierCell = document.createElement("td");
+                multiplierCell.textContent = selectedTable;
+                row.appendChild(multiplierCell);
+
+                const answerCell = document.createElement("td");
+                const answerInput = document.createElement("input");
+                answerInput.type = "number";
+                answerCell.appendChild(answerInput);
+                row.appendChild(answerCell);
+
+                const checkCell = document.createElement("td");
+                const checkButton = document.createElement("button");
+                checkButton.textContent = "Check";
+                checkButton.onclick = function () {
+                    const userAnswer = parseInt(answerInput.value);
+                    if (userAnswer === i * selectedTable) {
+                        messageCell.textContent = "Correct!";
+                        answerInput.disabled = true; // Disable the input after a correct answer
+                        checkButton.disabled = true; // Disable the check button
+                        correctCount++;
+                    } else {
+                        messageCell.textContent = "Incorrect";
+                        answerInput.disabled = true; // Disable the input after an incorrect answer
+                        checkButton.disabled = true; // Disable the check button
+                        incorrectCount++;
+                        triesOnIncorrect++;
+                        problemsToStudy.push(`${i} x ${selectedTable}`);
+                        updateGrade();
+                    }
+                };
+                row.appendChild(checkCell);
+                checkCell.appendChild(checkButton);
+
+                const messageCell = document.createElement("td");
+                row.appendChild(messageCell);
+
+                tableBody.appendChild(row);
+            }
+        }
+
+        // Generate the initial times table
+        generateTimesTable();
+
+        // Add event listener to the select element to regenerate the times table on change
+        document.getElementById("timesTable").addEventListener("change", generateTimesTable);
+
+        // Add event listener to the submit button to update the grade section
+        document.getElementById("submitButton").addEventListener("click", function() {
+            updateGrade();
+        });
+    </script>
+</body>
+</html>
+
