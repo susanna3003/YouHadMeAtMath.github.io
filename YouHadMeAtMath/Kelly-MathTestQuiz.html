@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Math Quiz</title>
+    <title>Math Quiz/Test</title>
     <style>
         body {
             background: linear-gradient(to bottom, #6DD5FA, #2980B9);
@@ -43,7 +43,13 @@
     </style>
 </head>
 <body>
-    <h1>Math Quiz</h1>
+    <h1>Math Quiz/Test</h1>
+	<a href="index.html">Index</a>
+	<a href="Kelly'sCopy.html">Promo</a>
+	<a href="YouHadMeAtMath.html">HOME INFO</a>
+	<a href="Kelly-MathWebsite.html">Home Page</a><br>
+	=======
+	<h2>Part 1: Quiz</h2>
     <div id="quiz-container">
         <div id="question">
             <!-- The math problem will appear here -->
@@ -61,7 +67,11 @@
             { question: "2 + 2", answer: "4" },
             { question: "5 - 3", answer: "2" },
             { question: "3 * 3", answer: "9" },
-            { question: "10 / 2", answer: "5" }
+            { question: "10 / 2", answer: "5" },
+			{ question: "24 + 2", answer: "26" },
+            { question: "15 - 3", answer: "12" },
+            { question: "9 * 3", answer: "27" },
+            { question: "12 / 2", answer: "6" }
         ];
 
         let currentQuestionIndex = 0;
@@ -75,7 +85,7 @@
             if (currentQuestionIndex < questions.length) {
                 questionElement.textContent = questions[currentQuestionIndex].question;
             } else {
-                questionElement.textContent = "Quiz completed!";
+                questionElement.textContent = "Math Quiz completed!";
                 answerElement.disabled = true;
                 submitButton.disabled = true;
             }
@@ -101,28 +111,112 @@
     </script>
 </body>
 </html>
+========
+<h2>Part 2: Test</h2>
+</head>
+<body>
+    
+    <p id="problem"></p>
+    <input type="text" id="userAnswer" placeholder="Your Answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result"></p>
+    <p id="progress"></p>
+
+    <script>
+        let totalProblems = 5; // Total number of problems in the test
+        let problemsSolved = 0; // Counter for problems solved
+
+        function generateMathProblem() {
+            const operators = ['+', '-', '*', '/'];
+            const operator = operators[Math.floor(Math.random() * operators.length)];
+            const num1 = Math.floor(Math.random() * 100);
+            const num2 = Math.floor(Math.random() * 100);
+
+            let problem;
+            switch (operator) {
+                case '+':
+                    problem = `${num1} ${operator} ${num2}`;
+                    break;
+                case '-':
+                    problem = `${num1} ${operator} ${num2}`;
+                    break;
+                case '*':
+                    problem = `${num1} ${operator} ${num2}`;
+                    break;
+                case '/':
+                    problem = `${num1 * num2} ${operator} ${num2}`;
+                    break;
+                default:
+                    break;
+            }
+
+            document.getElementById('problem').textContent = `Problem: ${problem}`;
+            document.getElementById('userAnswer').value = '';
+            document.getElementById('result').textContent = '';
+        }
+
+        function checkAnswer() {
+            const problemText = document.getElementById('problem').textContent;
+            const userAnswer = parseFloat(document.getElementById('userAnswer').value);
+            const parts = problemText.split(' ');
+            const num1 = parseFloat(parts[0]);
+            const operator = parts[1];
+            const num2 = parseFloat(parts[2]);
+
+            let correctAnswer;
+            switch (operator) {
+                case '+':
+                    correctAnswer = num1 + num2;
+                    break;
+                case '-':
+                    correctAnswer = num1 - num2;
+                    break;
+                case '*':
+                    correctAnswer = num1 * num2;
+                    break;
+                case '/':
+                    correctAnswer = num1 / num2;
+                    break;
+                default:
+                    break;
+            }
+
+            if (userAnswer === correctAnswer) {
+                document.getElementById('result').textContent = `Correct! The answer is ${correctAnswer}`;
+            } else {
+                document.getElementById('result').textContent = `Incorrect. The correct answer is ${correctAnswer}`;
+            }
+
+            problemsSolved++;
+            document.getElementById('progress').textContent = `Solved ${problemsSolved} out of ${totalProblems} problems`;
+
+            if (problemsSolved === totalProblems) {
+                document.getElementById('problem').textContent = 'Math test completed!';
+                document.getElementById('userAnswer').style.display = 'none';
+                document.getElementById('result').style.display = 'none';
+                document.getElementById('progress').style.display = 'none';
+            } else {
+                generateMathProblem();
+            }
+        }
+
+        // Initial problem generation
+        generateMathProblem();
+    </script>
+</body>
+</html>
+
 =======
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Math Quiz</title>
-    <style>
-        /* Add your CSS styling here */
-    </style>
-</head>
 <body>
-    <h1>Math Quiz</h1>
-	<li><a href="index.html">Index</a><br></li>
-	<li><a href="MathWebsite.html">Math Site</a><br></li>
-	<li><a href="Promo.html">Promo</a></li>
-	<li><a href="YouHadMeAtMath.html">HOME</a></li>
-    <div id="quiz-container">
+  
+	
+     <div id="quiz-container">
         <div id="question">
             <!-- The math problem will appear here -->
         </div>
-        <input type="text" id="answer" placeholder="Your Answer">
-        <button id="submit">Submit</button>
-    </div>
+      
 
     <div id="result">
         <!-- The result of the quiz will be displayed here -->
@@ -133,7 +227,11 @@
             { question: "2 + 2", answer: "4" },
             { question: "5 - 3", answer: "2" },
             { question: "3 * 3", answer: "9" },
-            { question: "10 / 2", answer: "5" }
+            { question: "10 / 2", answer: "5" },
+			{ question: "24 + 2", answer: "26" },
+            { question: "15 - 3", answer: "12" },
+            { question: "9 * 3", answer: "27" },
+            { question: "12 / 2", answer: "6" }
         ];
 
         let currentQuestionIndex = 0;
@@ -171,5 +269,7 @@
         submitButton.addEventListener('click', checkAnswer);
         showQuestion();
     </script>
+<p><b>NOTE:</b> Refresh page if needed for the function(s) to restart</p>
+</body>
 </body>
 </html>

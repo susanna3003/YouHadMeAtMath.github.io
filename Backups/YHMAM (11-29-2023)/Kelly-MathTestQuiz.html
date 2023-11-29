@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Math Quiz/Test</title>
+    <title>You Had Me At Math!</title>
     <style>
         body {
             background: linear-gradient(to bottom, #6DD5FA, #2980B9);
@@ -17,11 +17,22 @@
             text-align: center;
         }
 
+		footer {
+			background-color: #0073e6;
+			color: white;
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
 		p {
-				margin-top: 25px;    /* 10 pixels of top margin */
-				margin-right: 25px;  /* 20 pixels of right margin */
-				margin-bottom: 25px; /* 10 pixels of bottom margin */
-				margin-left: 25px;   /* 20 pixels of left margin */
+			margin-top: 25px;    /* 10 pixels of top margin */
+			margin-right: 25px;  /* 20 pixels of right margin */
+			margin-bottom: 25px; /* 10 pixels of bottom margin */
+			margin-left: 25px;   /* 20 pixels of left margin */
+			text-align: center;
 		}
 
         #container {
@@ -43,13 +54,20 @@
     </style>
 </head>
 <body>
-    <h1>Math Quiz/Test</h1>
-	<a href="index.html">Index</a>
-	<a href="Kelly'sCopy.html">Promo</a>
-	<a href="YouHadMeAtMath.html">HOME INFO</a>
-	<a href="Kelly-MathWebsite.html">Home Page</a><br>
-	=======
-	<h2>Part 1: Quiz</h2>
+    <header>
+		<img src="YHMAM_logo.png" alt="Your Logo" style="max-width: 100px; height: auto; display: inline-block; vertical-align: middle; margin-right: 10px;">
+        <h1>You Had Me At Math!</h1>
+		<h2>Math Quiz</h2>
+		<nav>
+            <a href="MoreInfo.html">MORE INFO</a> |
+            <a href="Contact.html">CONTACT</a> |
+            <a href="UserStories.html">USER STORIES</a> |
+			<a href="Kelly-MathWebsite.html">MATH WEBSITE[test]</a>
+        </nav>
+	</header
+	<p>
+		<h1>Math Quiz</h1>
+	</p>
     <div id="quiz-container">
         <div id="question">
             <!-- The math problem will appear here -->
@@ -85,7 +103,7 @@
             if (currentQuestionIndex < questions.length) {
                 questionElement.textContent = questions[currentQuestionIndex].question;
             } else {
-                questionElement.textContent = "Math Quiz completed!";
+                questionElement.textContent = "Quiz completed!";
                 answerElement.disabled = true;
                 submitButton.disabled = true;
             }
@@ -111,104 +129,10 @@
     </script>
 </body>
 </html>
-========
-<h2>Part 2: Test</h2>
-</head>
-<body>
-    
-    <p id="problem"></p>
-    <input type="text" id="userAnswer" placeholder="Your Answer">
-    <button onclick="checkAnswer()">Submit</button>
-    <p id="result"></p>
-    <p id="progress"></p>
 
-    <script>
-        let totalProblems = 5; // Total number of problems in the test
-        let problemsSolved = 0; // Counter for problems solved
-
-        function generateMathProblem() {
-            const operators = ['+', '-', '*', '/'];
-            const operator = operators[Math.floor(Math.random() * operators.length)];
-            const num1 = Math.floor(Math.random() * 100);
-            const num2 = Math.floor(Math.random() * 100);
-
-            let problem;
-            switch (operator) {
-                case '+':
-                    problem = `${num1} ${operator} ${num2}`;
-                    break;
-                case '-':
-                    problem = `${num1} ${operator} ${num2}`;
-                    break;
-                case '*':
-                    problem = `${num1} ${operator} ${num2}`;
-                    break;
-                case '/':
-                    problem = `${num1 * num2} ${operator} ${num2}`;
-                    break;
-                default:
-                    break;
-            }
-
-            document.getElementById('problem').textContent = `Problem: ${problem}`;
-            document.getElementById('userAnswer').value = '';
-            document.getElementById('result').textContent = '';
-        }
-
-        function checkAnswer() {
-            const problemText = document.getElementById('problem').textContent;
-            const userAnswer = parseFloat(document.getElementById('userAnswer').value);
-            const parts = problemText.split(' ');
-            const num1 = parseFloat(parts[0]);
-            const operator = parts[1];
-            const num2 = parseFloat(parts[2]);
-
-            let correctAnswer;
-            switch (operator) {
-                case '+':
-                    correctAnswer = num1 + num2;
-                    break;
-                case '-':
-                    correctAnswer = num1 - num2;
-                    break;
-                case '*':
-                    correctAnswer = num1 * num2;
-                    break;
-                case '/':
-                    correctAnswer = num1 / num2;
-                    break;
-                default:
-                    break;
-            }
-
-            if (userAnswer === correctAnswer) {
-                document.getElementById('result').textContent = `Correct! The answer is ${correctAnswer}`;
-            } else {
-                document.getElementById('result').textContent = `Incorrect. The correct answer is ${correctAnswer}`;
-            }
-
-            problemsSolved++;
-            document.getElementById('progress').textContent = `Solved ${problemsSolved} out of ${totalProblems} problems`;
-
-            if (problemsSolved === totalProblems) {
-                document.getElementById('problem').textContent = 'Math test completed!';
-                document.getElementById('userAnswer').style.display = 'none';
-                document.getElementById('result').style.display = 'none';
-                document.getElementById('progress').style.display = 'none';
-            } else {
-                generateMathProblem();
-            }
-        }
-
-        // Initial problem generation
-        generateMathProblem();
-    </script>
-</body>
-</html>
-
-=======
 <!DOCTYPE html>
 <html>
+
 <body>
   
 	
@@ -269,7 +193,18 @@
         submitButton.addEventListener('click', checkAnswer);
         showQuestion();
     </script>
-<p><b>NOTE:</b> Refresh page if needed for the function(s) to restart</p>
 </body>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+
+<body>
+	<footer>
+		<a href="index.html">Index</a>  |
+		<a href="Kelly'sCopy.html">Promo</a>  |
+		<a href="YouHadMeAtMath.html">HOME INFO</a>  |
+		<a href="Kelly-MathWebsite.html">Home Page</a>
+    </footer>
 </body>
 </html>

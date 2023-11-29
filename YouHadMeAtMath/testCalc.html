@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>You Had Me At Math!</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #6DD5FA, #2980B9);
+			background-attachment: fixed;
+            font-family: DejaVu Sans Mono, monospace;
+			display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+		p {
+			margin-top: 25px;
+			margin-right: 25px;
+			margin-bottom: 25px;
+			margin-left: 25px;
+		}
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: justify;
+			background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #comment-box {
+            margin-top: 20px;
+        }
+		
+		.calculator-button {
+            width: 80px;
+            height: 80px;
+            font-size: 24px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculator-button:hover {
+            background-color: #ccc;
+        }
+		
+		/* Add styling for the dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+		<img src="YHMAM_logo.png" alt="Your Logo" style="max-width: 100px; height: auto; display: inline-block; vertical-align: middle; margin-right: 10px;">
+        <h1>You Had Me At Math!</h1>
+        <nav>
+			<a href="YouHadMeAtMath.html">HOME</a> |
+            <a href="MoreInfo.html">MORE INFO</a> |
+            <a href="Contact.html">CONTACT</a> |
+            <a href="UserStories.html">USER STORIES</a> |
+			<a href="Kelly-MathWebsite.html">MATH WEBSITE[test]</a> |
+			<a href="Kelly-MathTestQuiz.html">MATH QUIZ[test]</a> |
+			<div class="dropdown">
+                <a href="TimesTable.html">TIMES TABLES</a>
+                <div class="dropdown-content">
+				<ul>
+                    <li><a href="#">2 TIMES TABLES</a></li>
+                    <li><a href="#">3 TIMES TABLES</a></li>
+                    <li><a href="#">4 TIMES TABLES</a></li>
+					<li><a href="#">5 TIMES TABLES</a></li>
+                    <li><a href="#">6 TIMES TABLES</a></li>
+                    <li><a href="#">7 TIMES TABLES</a></li>
+					<li><a href="#">8 TIMES TABLES</a></li>
+                    <li><a href="#">9 TIMES TABLES</a></li>
+                    <li><a href="#">10 TIMES TABLES</a></li>
+					<li><a href="#">11 TIMES TABLES</a></li>
+                    <li><a href="#">12 TIMES TABLES</a></li>
+				</ul>
+                </div>
+            </div>
+        </nav>
+    </header>	
+<div id="container">
+        <h1>Calculator</h1>
+        <div>
+            <label for="problem">Enter a problem:</label>
+            <input type="text" id="problem">
+        </div>
+        <div>
+            <label for "userAnswer">Your Answer:</label>
+            <input type="text" id="userAnswer">
+        </div>
+        <div>
+            <button class="calculator-button" onclick="addToProblem('1')">1</button>
+            <button class="calculator-button" onclick="addToProblem('2')">2</button>
+            <button class="calculator-button" onclick="addToProblem('3')">3</button>
+            <button class="calculator-button" onclick="addToProblem('+')">+</button>
+        </div>
+        <div>
+            <button class="calculator-button" onclick="addToProblem('4')">4</button>
+            <button class="calculator-button" onclick="addToProblem('5')">5</button>
+            <button class="calculator-button" onclick="addToProblem('6')">6</button>
+            <button class="calculator-button" onclick="addToProblem('-')">-</button>
+        </div>
+        <div>
+            <button class="calculator-button" onclick="addToProblem('7')">7</button>
+            <button class="calculator-button" onclick="addToProblem('8')">8</button>
+            <button class="calculator-button" onclick="addToProblem('9')">9</button>
+            <button class="calculator-button" onclick="addToProblem('*')">*</button>
+        </div>
+        <div>
+            <button class="calculator-button" onclick="addToProblem('0')">0</button>
+            <button class="calculator-button" onclick="addToProblem('.')">.</button>
+            <button class="calculator-button" onclick="clearProblem()">C</button>
+            <button class="calculator-button" onclick="addToProblem('/')">/</button>
+        </div>
+        <button class="calculator-button" style="width: 320px;" onclick="checkAnswer()">Check Answer</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let currentProblem = '';
+
+        function addToProblem(value) {
+            currentProblem += value;
+            document.getElementById('problem').value = currentProblem;
+        }
+
+        function clearProblem() {
+            currentProblem = '';
+            document.getElementById('problem').value = '';
+        }
+
+        function checkAnswer() {
+            const problem = document.getElementById('problem').value;
+            const userAnswer = document.getElementById('userAnswer').value;
+            let correctAnswer;
+
+            try {
+                correctAnswer = eval(problem);
+
+                if (userAnswer == correctAnswer) {
+                    document.getElementById('result').innerHTML = 'Correct!';
+                } else {
+                    document.getElementById('result').innerHTML = 'Incorrect!';
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Invalid input. Please enter a valid expression.';
+            }
+        }
+    </script>
+	<p><b>NOTE:</b> Refresh page if needed for the function(s) to restart</p>
+</body>
+</html>

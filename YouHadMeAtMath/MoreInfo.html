@@ -31,6 +31,24 @@
         h2 {
             color: #0073e6;
         }
+		
+		/* Add styling for the dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +59,25 @@
             <a href="Contact.html">CONTACT</a> |
             <a href="UserStories.html">USER STORIES</a> |
 			<a href="Kelly-MathWebsite.html">MATH WEBSITE[test]</a> |
-			<a href="Kelly-MathTestQuiz.html">MATH QUIZ[test]</a>
+			<a href="Kelly-MathTestQuiz.html">MATH QUIZ[test]</a> |
+			<div class="dropdown">
+                <a href="TimesTable.html">TIMES TABLES</a>
+                <div class="dropdown-content">
+				<ul>
+                    <li><a href="#">2 TIMES TABLES</a></li>
+                    <li><a href="#">3 TIMES TABLES</a></li>
+                    <li><a href="#">4 TIMES TABLES</a></li>
+					<li><a href="#">5 TIMES TABLES</a></li>
+                    <li><a href="#">6 TIMES TABLES</a></li>
+                    <li><a href="#">7 TIMES TABLES</a></li>
+					<li><a href="#">8 TIMES TABLES</a></li>
+                    <li><a href="#">9 TIMES TABLES</a></li>
+                    <li><a href="#">10 TIMES TABLES</a></li>
+					<li><a href="#">11 TIMES TABLES</a></li>
+                    <li><a href="#">12 TIMES TABLES</a></li>
+				</ul>
+                </div>
+            </div>
         </nav>
     </header>
 	<main>

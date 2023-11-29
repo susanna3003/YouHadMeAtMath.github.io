@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>You Had Me at Math</title>
+    <title>Math Website</title>
     <style>
         body {
             background: linear-gradient(to bottom, #6DD5FA, #2980B9);
@@ -134,40 +134,7 @@
             option = prompt("Options: register | login | exit");
         }
         console.log("Shutting down...");
-  
-    function session(username, accountType) {
-        alert("Welcome, " + username + "! You are logged in as a " + accountType);
-    }
-
-    function chooseRole() {
-        var role = prompt("Choose your role: admin or student");
-        if (role === null || role.length === 0) {
-            alert("Role can't be blank");
-            return;
-        }
-
-        if (role === "admin") {
-            login();
-        } else if (role === "student") {
-            var username = prompt("Enter your username: ");
-            if (validate(username) && username in users && users[username]["group"] === "student") {
-                var password = prompt("Enter your password: ");
-                if (validate(password) && loginauth(username, password)) {
-                    session(username, "student");
-                } else {
-                    alert("Invalid username or password");
-                }
-            } else {
-                alert("Invalid username or account type");
-            }
-        } else {
-            alert("Invalid role");
-        }
-    }
-
-    console.log("Welcome to the system. Please choose your role.");
-    chooseRole();
-</script>
+    </script>
 </head>
 <body>
     <h1>User Authentication System</h1>
