@@ -146,6 +146,26 @@
                 problemsToStudyList.appendChild(listItem);
             });
         }
+		
+		function WriteToFile() 
+		{
+			const currentDate = new Date().toLocaleString(); // Get the current date and time
+			const content = [
+				"Date: ", currentDate,
+				"Times Table: ", document.getElementById("timesTable").value,
+				"Number Correct: ", document.getElementById("correctCount").textContent,
+				"Number incorrect: ", document.getElementById("incorrectCount").textContent,
+				"Tries on incorrect: ", document.getElementById("triesOnIncorrect").textContent,
+				"Problems to Study:",
+				...problemsToStudy
+			];
+
+			const blob = new Blob([content.join('\n')], { type: 'text/plain' });
+			const link = document.createElement('a');
+			link.download = 'MultiplicationReport.txt';
+			link.href = window.URL.createObjectURL(blob);
+			link.click();
+		}
 
         // Function to generate the times table questions and insert them into the table
         function generateTimesTable() {
@@ -209,6 +229,7 @@
         // Add event listener to the submit button to update the grade section
         document.getElementById("submitButton").addEventListener("click", function() {
             updateGrade();
+			WriteToFile();
         });
     </script>
 	
