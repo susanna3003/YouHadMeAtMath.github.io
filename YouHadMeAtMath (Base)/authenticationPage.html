@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>You Had Me at Math</title>
+    <link rel="stylesheet" href="style.css">
+<header>
+		<img src="YHMAM_logo.png" alt="Your Logo" style="max-width: 100px; height: auto; display: inline-block; vertical-align: middle; margin-right: 10px;">
+        <h1>You Had Me At Math!</h1>
+        <nav>
+			<a href="homePage.html">HOME</a> |
+            <a href="MoreInfo.html">MORE INFO</a> |
+            <a href="Contact.html">CONTACT</a> |
+            <a href="UserStories.html">USER STORIES</a> |
+			<a href="Kelly-MathTestQuiz.html">MATH QUIZ/TEST</a> |
+			<a href="Calculator.html">CALCULATOR</a> |
+			<div class="dropdown">
+                <a href="TimesTable.html">TIMES TABLES </a> |
+                <div class="dropdown-content">
+				<ul>
+                    <li><a href="#">2 TIMES TABLES</a></li>
+                    <li><a href="#">3 TIMES TABLES</a></li>
+                    <li><a href="#">4 TIMES TABLES</a></li>
+					<li><a href="#">5 TIMES TABLES</a></li>
+                    <li><a href="#">6 TIMES TABLES</a></li>
+                    <li><a href="#">7 TIMES TABLES</a></li>
+					<li><a href="#">8 TIMES TABLES</a></li>
+                    <li><a href="#">9 TIMES TABLES</a></li>
+                    <li><a href="#">10 TIMES TABLES</a></li>
+					<li><a href="#">11 TIMES TABLES</a></li>
+                    <li><a href="#">12 TIMES TABLES</a></li>
+				</ul>
+                </div>
+            </div>
+			<a href="authenticationPage.html">USER LOGIN</a> |
+			<a href="authenticationPage.html">REGISTER</a> |
+        </nav>
+    </header>
+    <title>User Authentication System</title>
+    <script>
+        var users = {
+            "root": {
+                "password": "gucci-mane",
+                "group": "admin",
+                "math problems": []
+            }
+        };
+
+        function validate(form) {
+            return form.length > 0;
+        }
+
+        function loginauth(username, password) {
+            if (username in users && password === users[username]["password"]) {
+                console.log("Login successful");
+                return true;
+            }
+            return false;
+        }
+
+        function login() {
+            var username = prompt("Username: ");
+            if (username === null || username.length === 0) {
+                alert("Username can't be blank");
+                return;
+            }
+
+            var password = prompt("Password: ");
+            if (password === null || password.length === 0) {
+                alert("Password can't be blank");
+                return;
+            }
+
+            if (loginauth(username, password)) {
+                session(username);
+            } else {
+                alert("Invalid username or password");
+            }
+        }
+
+        function register() {
+            var username = prompt("New username: ");
+            if (username === null || username.length === 0) {
+                alert("Username can't be blank");
+                return;
+            }
+
+            if (username in users) {
+                alert("Username already exists");
+                return;
+            }
+
+            var password = prompt("New password: ");
+            if (password === null || password.length === 0) {
+                alert("Password can't be blank");
+                return;
+            }
+
+            var accountType = prompt("Type of account: student/kid or teacher/parent: ");
+            if (accountType === null || accountType.length === 0) {
+                alert("Please pick the type of account");
+                return;
+            }
+
+            alert("Creating account...");
+            users[username] = {
+                "password": password,
+                "group": accountType, // Set the group based on the user's choice
+                "math problems": []
+            };
+            alert("Account has been created");
+        }
+
+        // Implement the session logic as needed
+
+        console.log("Welcome to the system. Please register or login.");
+        var option = prompt("Options: register | login | exit");
+        while (option !== null) {
+            if (option === "login") {
+                login();
+            } else if (option === "register") {
+                register();
+            } else if (option === "exit") {
+                break;
+            } else {
+                alert(option + " is not an option");
+            }
+            option = prompt("Options: register | login | exit");
+        }
+        console.log("Shutting down...");
+  
+    function session(username, accountType) {
+        alert("Welcome, " + username + "! You are logged in as a " + accountType);
+    }
+
+    function chooseRole() {
+        var role = prompt("Choose your role: admin or student");
+        if (role === null || role.length === 0) {
+            alert("Role can't be blank");
+            return;
+        }
+
+        if (role === "admin") {
+            login();
+        } else if (role === "student") {
+            var username = prompt("Enter your username: ");
+            if (validate(username) && username in users && users[username]["group"] === "student") {
+                var password = prompt("Enter your password: ");
+                if (validate(password) && loginauth(username, password)) {
+                    session(username, "student");
+                } else {
+                    alert("Invalid username or password");
+                }
+            } else {
+                alert("Invalid username or account type");
+            }
+        } else {
+            alert("Invalid role");
+        }
+    }
+
+    console.log("Welcome to the system. Please choose your role.");
+    chooseRole();
+</script>
+</head>
+<body>
+    <h1>User Authentication System</h1>
+</body>
+</html>
